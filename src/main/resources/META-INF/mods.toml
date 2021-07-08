@@ -1,6 +1,6 @@
 modLoader="javafml"
 loaderVersion="[36,)"
-#issueTrackerURL="https://github.com/mrbysco/?/issues"
+issueTrackerURL="https://github.com/Mrbysco/wasaila/issues"
 license="MIT"
 
 [[mods]]
@@ -21,7 +21,7 @@ ordering="AFTER"
 side="BOTH"
 
 [[dependencies.wasaila]]
-modId="jade"
+modId="waila"
 mandatory=true
 versionRange="[2.7.1,)"
 ordering="BEFORE"
