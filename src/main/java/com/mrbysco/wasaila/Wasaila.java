@@ -1,33 +1,17 @@
 package com.mrbysco.wasaila;
 
+import net.minecraftforge.fml.ExtensionPoint;
+import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.Mod.EventHandler;
-import net.minecraftforge.fml.common.Mod.Instance;
-import net.minecraftforge.fml.common.event.FMLInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLInterModComms;
-import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import org.apache.commons.lang3.tuple.Pair;
 
-@Mod(modid = "wasaila", name = "What Agricraft Stats Am I Looking At", version = "@VERSION@", acceptedMinecraftVersions = "[1.12]", dependencies = "required-after:agricraft;required-before:waila;")
+@Mod("wasaila")
 public class Wasaila {
-	@Instance("wasaila")
-	public static Wasaila instance;
-	
-	@EventHandler
-	public void preInit(FMLPreInitializationEvent event)
-	{
-		
-	}
-
-	@EventHandler
-	public void init(FMLInitializationEvent event)
-	{
-
-	}
-
-	@EventHandler
-	public void postInit(FMLPostInitializationEvent event)
-	{
-		
+	public Wasaila() {
+		//Make sure the mod being absent on the other network side does not cause the client to display the server as incompatible
+		ModLoadingContext.get().registerExtensionPoint(ExtensionPoint.DISPLAYTEST, () -> Pair.of(
+				() -> "Trans Rights Are Human Rights",
+				(remoteVersionString,networkBool) -> networkBool
+		));
 	}
 }

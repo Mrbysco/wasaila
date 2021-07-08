@@ -1,0 +1,28 @@
+modLoader="javafml"
+loaderVersion="[36,)"
+#issueTrackerURL="https://github.com/mrbysco/?/issues"
+license="MIT"
+
+[[mods]]
+modId="wasaila"
+version="${file.jarVersion}"
+displayName="What Agricraft Stats Am I Looking At"
+displayURL="https://www.curseforge.com/minecraft/mc-mods/wasaila"
+authors="Mrbysco"
+description='''
+Adding back Agricraft Waila compat
+'''
+
+[[dependencies.wasaila]]
+modId="agricraft"
+mandatory=true
+versionRange="[1.16.5-3.0.4,)"
+ordering="AFTER"
+side="BOTH"
+
+[[dependencies.wasaila]]
+modId="jade"
+mandatory=true
+versionRange="[2.7.1,)"
+ordering="BEFORE"
+side="BOTH"
