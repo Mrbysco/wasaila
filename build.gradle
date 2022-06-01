@@ -1,5 +1,6 @@
 buildscript {
     repositories {
+        // These repositories are only for Gradle plugins, put any other repositories in the repository block further below
         maven { url = 'https://maven.minecraftforge.net' }
         mavenCentral()
     }
@@ -7,15 +8,18 @@ buildscript {
         classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.1.+', changing: true
     }
 }
+//Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
+plugins {
+    id 'maven-publish'
+}
 apply plugin: 'net.minecraftforge.gradle'
-// Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
-apply plugin: 'maven-publish'
 
 version = "${version}"
 group = 'com.mrbysco.wasaila' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "Wasaila-${mc_version}"
 
-java.toolchain.languageVersion = JavaLanguageVersion.of(8) // Mojang ships Java 8 to end users, so your mod should target Java 8.
+// Mojang ships Java 17 to end users in 1.18+, so your mod should target Java 17.
+java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
 println('Java: ' + System.getProperty('java.version') + ' JVM: ' + System.getProperty('java.vm.version') + '(' + System.getProperty('java.vendor') + ') Arch: ' + System.getProperty('os.arch'))
 minecraft {
@@ -94,9 +98,9 @@ repositories {
 dependencies {
     minecraft "net.minecraftforge:forge:${mc_version}-${forge_version}"
 
-    implementation fg.deobf("curse.maven:jade-324717:3597364") //Jade (WAILA)
-    implementation fg.deobf("curse.maven:agricraft-225635:3809887") //Agricraft
-    implementation fg.deobf("curse.maven:infinitylib-251396:3539825") //InfinityLib (required by Agricraft)
+    implementation fg.deobf("curse.maven:jade-324717:3803226") //Jade (WAILA)
+    implementation fg.deobf("curse.maven:agricraft-225635:3810470") //Agricraft
+    implementation fg.deobf("curse.maven:infinitylib-251396:3809891") //InfinityLib (required by Agricraft)
 }
 
 jar {
@@ -139,4 +143,8 @@ publishing {
             }
         }
     }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8' // Use the UTF-8 charset for Java compilation
 }

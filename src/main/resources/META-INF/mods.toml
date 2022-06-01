@@ -1,5 +1,5 @@
 modLoader="javafml"
-loaderVersion="[36,)"
+loaderVersion="[40,)"
 issueTrackerURL="https://github.com/Mrbysco/wasaila/issues"
 license="MIT"
 
@@ -16,13 +16,13 @@ Adding back Agricraft Waila compat
 [[dependencies.wasaila]]
 modId="agricraft"
 mandatory=true
-versionRange="[1.16.5-3.0.4,)"
+versionRange="[1.18.2-3.1.0,)"
 ordering="AFTER"
 side="BOTH"
 
 [[dependencies.wasaila]]
 modId="waila"
 mandatory=true
-versionRange="[2.7.1,)"
+versionRange="[5.2.0,)"
 ordering="BEFORE"
 side="BOTH"
